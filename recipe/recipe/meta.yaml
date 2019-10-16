@@ -25,10 +25,10 @@ source:
       - 001-fix-compilation.patch  # [unix]
       - 002-fix-osx.patch  # [unix]
       - msvc.patch  # [win]
-  - path: CMakeLists.txt
+  - path: CMakeLists.txt  # [win]
 
 build:
-  number: 0
+  number: 1
   skip: true  # [win and vc<14]
 
 requirements:
