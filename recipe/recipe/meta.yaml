@@ -18,22 +18,25 @@ package:
   version: 0.10.0
 
 source:
-  url: http://archive.apache.org/dist/logging/log4cxx/0.10.0/apache-log4cxx-0.10.0.tar.gz
-  fn:  apache-log4cxx-0.10.0.tar.gz
-  sha256: 0de0396220a9566a580166e66b39674cb40efd2176f52ad2c65486c99c920c8c
-  patches:
-    - 001-fix-compilation.patch
-    - 002-fix-osx.patch
+  - url: http://archive.apache.org/dist/logging/log4cxx/0.10.0/apache-log4cxx-0.10.0.tar.gz
+    fn:  apache-log4cxx-0.10.0.tar.gz
+    sha256: 0de0396220a9566a580166e66b39674cb40efd2176f52ad2c65486c99c920c8c
+    patches:
+      - 001-fix-compilation.patch  # [unix]
+      - 002-fix-osx.patch  # [unix]
+      - msvc.patch  # [win]
+  - path: CMakeLists.txt  # [win]
 
 build:
-  number: 0
-  skip: true  # [win]
+  number: 1
+  skip: true  # [win and vc<14]
 
 requirements:
   build:
     - {{ compiler('cxx') }}
     - {{ compiler('c') }}
-    - make
+    - cmake  # [win]
+    - make  # [unix]
   host:
     - expat
     - apr
@@ -51,6 +54,9 @@ test:
     - test -f $PREFIX/lib/liblog4cxx.a  # [linux]
     - test -f $PREFIX/lib/liblog4cxx.so  # [linux]
     - test -f $PREFIX/lib/liblog4cxx.dylib  # [osx]
+    - if not exist %LIBRARY_INC%\\log4cxx\\log4cxx.h exit 1  # [win]
+    - if not exist %LIBRARY_BIN%\\log4cxx.dll exit 1  # [win]
+    - if not exist %LIBRARY_LIB%\\log4cxx.lib exit 1  # [win]
 
 about:
   home: https://logging.apache.org/log4cxx
@@ -69,3 +75,4 @@ extra:
   recipe-maintainers:
     - wolfv
     - lesteve
+    - seanyen
