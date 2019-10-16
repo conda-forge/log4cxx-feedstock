@@ -35,7 +35,7 @@ requirements:
   build:
     - {{ compiler('cxx') }}
     - {{ compiler('c') }}
-    - cmake
+    - cmake  # [win]
     - make  # [unix]
   host:
     - expat
@@ -54,6 +54,9 @@ test:
     - test -f $PREFIX/lib/liblog4cxx.a  # [linux]
     - test -f $PREFIX/lib/liblog4cxx.so  # [linux]
     - test -f $PREFIX/lib/liblog4cxx.dylib  # [osx]
+    - if not exist %LIBRARY_INC%\\log4cxx\\log4cxx.h exit 1  # [win]
+    - if not exist %LIBRARY_BIN%\\log4cxx.dll exit 1  # [win]
+    - if not exist %LIBRARY_LIB%\\log4cxx.lib exit 1  # [win]
 
 about:
   home: https://logging.apache.org/log4cxx
