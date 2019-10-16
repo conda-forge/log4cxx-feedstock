@@ -18,22 +18,25 @@ package:
   version: 0.10.0
 
 source:
-  url: http://archive.apache.org/dist/logging/log4cxx/0.10.0/apache-log4cxx-0.10.0.tar.gz
-  fn:  apache-log4cxx-0.10.0.tar.gz
-  sha256: 0de0396220a9566a580166e66b39674cb40efd2176f52ad2c65486c99c920c8c
-  patches:
-    - 001-fix-compilation.patch
-    - 002-fix-osx.patch
+  - url: http://archive.apache.org/dist/logging/log4cxx/0.10.0/apache-log4cxx-0.10.0.tar.gz
+    fn:  apache-log4cxx-0.10.0.tar.gz
+    sha256: 0de0396220a9566a580166e66b39674cb40efd2176f52ad2c65486c99c920c8c
+    patches:
+      - 001-fix-compilation.patch  # [unix]
+      - 002-fix-osx.patch  # [unix]
+      - msvc.patch  # [win]
+  - path: CMakeLists.txt
 
 build:
   number: 0
-  skip: true  # [win]
+  skip: true  # [win and vc<14]
 
 requirements:
   build:
     - {{ compiler('cxx') }}
     - {{ compiler('c') }}
-    - make
+    - cmake
+    - make  # [unix]
   host:
     - expat
     - apr
