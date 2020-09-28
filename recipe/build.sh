@@ -16,7 +16,11 @@
 
 export BR2_PACKAGE_LIBICONV=y
 
-./configure --prefix=${PREFIX}
+if [ "${target_platform}" == "linux-aarch64" ]; then
+    ADD_ARG="--build=aarch64-unknown-linux-gnu --host=aarch64-unknown-linux-gnu"
+fi
+
+./configure --prefix=${PREFIX} ${ADD_ARG}
 
 make -j ${CPU_COUNT}
 make install
