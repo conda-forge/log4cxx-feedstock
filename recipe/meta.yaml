@@ -13,13 +13,16 @@
 # GNU General Public License for more details.
 #--------------------------------------------------------------------------------
 
+{% set name = "log4cxx" %}
+{% set version = "0.11.0" %}
+
 package:
-  name: log4cxx
-  version: 0.11.0
+  name: {{ name }}
+  version: {{ version }}
 
 source:
-  - url: http://archive.apache.org/dist/logging/log4cxx/{{ version }}/apache-log4cxx-{{ version }}.tar.gz
-    fn:  apache-log4cxx-{{ version }}.tar.gz
+  - url: http://archive.apache.org/dist/logging/{{ name }}/{{ version }}/apache-{{ name }}-{{ version }}.tar.gz
+    fn:  apache-{{ name }}-{{ version }}.tar.gz
     sha256: c316705ee3c4e5b919d3561d5f305162d21687aa6ae1f31f02f6cdadc958b393
     patches:
       - 001-fix-compilation.patch  # [unix]
