@@ -35,6 +35,7 @@ requirements:
     - {{ compiler('cxx') }}
     - {{ compiler('c') }}
     - cmake
+    - make
   host:
     - expat
     - apr
