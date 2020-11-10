@@ -50,7 +50,6 @@ test:
   commands:
     - test -f $PREFIX/include/log4cxx/appender.h  # [unix]
     - test -f $PREFIX/include/log4cxx/logmanager.h  # [unix]
-    - test -f $PREFIX/lib/liblog4cxx.a  # [linux]
     - test -f $PREFIX/lib/liblog4cxx.so  # [linux]
     - test -f $PREFIX/lib/liblog4cxx.dylib  # [osx]
     - if not exist %LIBRARY_INC%\\log4cxx\\log4cxx.h exit 1  # [win]
