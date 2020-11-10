@@ -24,9 +24,7 @@ source:
   - url: http://archive.apache.org/dist/logging/{{ name }}/{{ version }}/apache-{{ name }}-{{ version }}.tar.gz
     fn:  apache-{{ name }}-{{ version }}.tar.gz
     sha256: c316705ee3c4e5b919d3561d5f305162d21687aa6ae1f31f02f6cdadc958b393
-    patches:
-      - msvc.patch  # [win]
-  - path: CMakeLists.txt  # [win]
+  - path: CMakeLists.txt
 
 build:
   number: 0
@@ -36,8 +34,7 @@ requirements:
   build:
     - {{ compiler('cxx') }}
     - {{ compiler('c') }}
-    - cmake  # [win]
-    - make  # [unix]
+    - cmake
   host:
     - expat
     - apr
@@ -47,6 +44,7 @@ requirements:
     - apr
     - libaprutil
     - libapr
+
 
 test:
   commands:
