@@ -48,6 +48,8 @@ requirements:
 
 
 test:
+  requires:
+    - zip
   commands:
     - test -f $PREFIX/include/log4cxx/appender.h  # [unix]
     - test -f $PREFIX/include/log4cxx/logmanager.h  # [unix]
