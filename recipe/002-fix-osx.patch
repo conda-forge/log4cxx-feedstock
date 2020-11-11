@@ -1,0 +1,20 @@
+diff -Nuar apache-log4cxx-0.11.0/src/main/cpp/ndc.cpp apache-log4cxx-0.11.0.patch/src/main/cpp/ndc.cpp
+--- apache-log4cxx-0.11.0/src/main/cpp/ndc.cpp	2020-08-06 16:18:30.000000000 -0700
++++ apache-log4cxx-0.11.0.patch/src/main/cpp/ndc.cpp	2020-11-11 11:43:06.000000000 -0800
+@@ -327,7 +327,7 @@
+ 
+ 		if (!stack.empty())
+ 		{
+-			Transcoder::encode(stack.top().message, dst);
++			Transcoder::encode(getMessage(stack.top()), dst);
+ 			stack.pop();
+ 			data->recycle();
+ 			return true;
+@@ -349,7 +349,7 @@
+ 
+ 		if (!stack.empty())
+ 		{
+-			Transcoder::encode(stack.top().message, dst);
++			Transcoder::encode(getMessage(stack.top()), dst);
+ 			return true;
+ 		}

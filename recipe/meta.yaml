@@ -24,6 +24,8 @@ source:
   - url: http://archive.apache.org/dist/logging/{{ name }}/{{ version }}/apache-{{ name }}-{{ version }}.tar.gz
     fn:  apache-{{ name }}-{{ version }}.tar.gz
     sha256: c316705ee3c4e5b919d3561d5f305162d21687aa6ae1f31f02f6cdadc958b393
+    patches:
+      - 002-fix-osx.patch  # [unix]
   - path: CMakeLists.txt
 
 build:
@@ -49,7 +51,7 @@ requirements:
 
 test:
   requires:
-    - zip
+    - zip  # [unix]
   commands:
     - test -f $PREFIX/include/log4cxx/appender.h  # [unix]
     - test -f $PREFIX/include/log4cxx/logmanager.h  # [unix]
