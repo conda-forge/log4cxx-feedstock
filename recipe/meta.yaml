@@ -39,7 +39,7 @@ requirements:
     - {{ compiler('c') }}
     - cmake
     - make
-    - zip  # [unix]
+    - zip  # [linux]
   host:
     - expat
     - apr
