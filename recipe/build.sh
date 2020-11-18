@@ -14,13 +14,19 @@
 # GNU General Public License for more details.
 #--------------------------------------------------------------------------------
 
-export BR2_PACKAGE_LIBICONV=y
+set -ex
 
-if [ "${target_platform}" == "linux-aarch64" ]; then
-    ADD_ARG="--build=aarch64-unknown-linux-gnu --host=aarch64-unknown-linux-gnu"
-fi
+mkdir build
+cd build
 
-./configure --prefix=${PREFIX} ${ADD_ARG}
+cmake ${CMAKE_ARGS} \
+  -DCMAKE_BUILD_TYPE=Release \
+  -DCMAKE_COLOR_MAKEFILE=OFF \
+  -DCMAKE_INSTALL_PREFIX="$PREFIX" \
+  ..
 
 make -j ${CPU_COUNT}
 make install
+if [[ $OSTYPE == "linux-gnu" ]]; then
+  make test
+fi
