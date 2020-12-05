@@ -30,11 +30,11 @@ source:
   - path: CMakeLists.txt
 
 build:
-  number: 1
+  number: 2
   skip: true  # [win and vc<14]
   run_exports:
     # no ABI lab data, soname is changing with each release
-    - {{ pin_compatible("log4cxx", max_pin="x.x.x") }}
+    - {{ pin_subpackage("log4cxx", max_pin="x.x.x") }}
 
 requirements:
   build:
