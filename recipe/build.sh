@@ -1,4 +1,6 @@
 #!/bin/bash
+# Get an updated config.sub and config.guess
+cp $BUILD_PREFIX/share/gnuconfig/config.* .
 #--------------------------------------------------------------------------------
 # MetTools - A Collection of Software for Meteorology and Remote Sensing
 # Copyright (C) 2016  EUMETSAT
@@ -28,5 +30,7 @@ cmake ${CMAKE_ARGS} \
 make -j ${CPU_COUNT}
 make install
 if [[ $OSTYPE == "linux-gnu" ]]; then
+if [[ "${CONDA_BUILD_CROSS_COMPILATION}" != "1" ]]; then
   make test
+fi
 fi
