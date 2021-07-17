@@ -7,12 +7,10 @@ channel_targets:
 cxx_compiler:
 - vs2017
 expat:
-- '2.3'
+- '2'
 libiconv:
 - '1.16'
 pin_run_as_build:
-  expat:
-    max_pin: x.x
   libiconv:
     max_pin: x.x
 target_platform:
