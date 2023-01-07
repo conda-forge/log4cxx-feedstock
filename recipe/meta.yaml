@@ -14,7 +14,7 @@
 #--------------------------------------------------------------------------------
 
 {% set name = "log4cxx" %}
-{% set version = "0.11.0" %}
+{% set version = "1.0.0" %}
 
 package:
   name: {{ name }}
@@ -22,15 +22,15 @@ package:
 
 source:
   - url: http://archive.apache.org/dist/logging/{{ name }}/{{ version }}/apache-{{ name }}-{{ version }}.tar.gz
-    fn:  apache-{{ name }}-{{ version }}.tar.gz
-    sha256: c316705ee3c4e5b919d3561d5f305162d21687aa6ae1f31f02f6cdadc958b393
+    fn: apache-{{ name }}-{{ version }}.tar.gz
+    sha256: 6df9f1f682650de6045309473d5b2fe1f798a03ceb36a74a5b21f5520962d32f
     patches:
       - 001-fix-osx-segfault.patch
       - 002-fix-osx.patch
   - path: CMakeLists.txt
 
 build:
-  number: 3
+  number: 0
   skip: true  # [win and vc<14]
   run_exports:
     # no ABI lab data, soname is changing with each release
@@ -69,8 +69,7 @@ about:
   home: https://logging.apache.org/log4cxx
   license: Apache-2.0
   license_file: LICENSE
-  summary:
-    A logging framework for C++ patterned after Apache log4j.
+  summary: A logging framework for C++ patterned after Apache log4j.
   description: |
     Apache log4cxx is a logging framework for C++ patterned after Apache log4j,
     which uses Apache Portable Runtime for most platform-specific code and should be
