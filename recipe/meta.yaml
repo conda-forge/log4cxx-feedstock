@@ -43,7 +43,7 @@ requirements:
     - zip  # [linux]
     - m2-sed  # [win]
     - m2-zip  # [win]
-    - gzip  # [win]
+    - m2-gzip  # [win]
   host:
     - expat
     - apr
