@@ -42,6 +42,7 @@ requirements:
     - make
     - zip  # [linux]
     - m2-sed  # [win]
+    - m2-zip  # [win]
   host:
     - expat
     - apr
