@@ -41,6 +41,7 @@ requirements:
     - cmake
     - make
     - zip  # [linux]
+    - m2-sed  # [win]
   host:
     - expat
     - apr
