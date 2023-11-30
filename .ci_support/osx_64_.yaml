@@ -14,6 +14,8 @@ cxx_compiler_version:
 - '16'
 expat:
 - '2'
+fmt:
+- '9'
 libiconv:
 - '1'
 macos_machine:
