@@ -9,7 +9,7 @@ cxx_compiler:
 expat:
 - '2'
 fmt:
-- '9'
+- '10'
 libiconv:
 - '1'
 target_platform:
