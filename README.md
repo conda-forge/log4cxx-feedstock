@@ -199,7 +199,6 @@ Feedstock Maintainers
 =====================
 
 * [@brianv0](https://github.com/brianv0/)
-* [@lesteve](https://github.com/lesteve/)
 * [@mwittgen](https://github.com/mwittgen/)
 * [@seanyen](https://github.com/seanyen/)
 * [@wolfv](https://github.com/wolfv/)
