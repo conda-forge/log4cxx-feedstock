@@ -21,10 +21,15 @@ set -ex
 mkdir build
 cd build
 
+if [[ $OSTYPE == "linux-gnu" ]]; then
+   BUILD_TESTING=On
+fi
+
 cmake ${CMAKE_ARGS} \
   -DCMAKE_BUILD_TYPE=Release \
   -DCMAKE_COLOR_MAKEFILE=OFF \
   -DCMAKE_INSTALL_PREFIX="$PREFIX" \
+  -DBUILD_TESTING=${BUILD_TESTING} \
   ..
 
 make -j ${CPU_COUNT}

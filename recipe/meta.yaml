@@ -30,8 +30,7 @@ source:
   - path: CMakeLists.txt
 
 build:
-  number: 4
-  skip: true  # [not linux and not aarch64]
+  number: 5
   run_exports:
     # no ABI lab data, soname is changing with each release
     - {{ pin_subpackage("log4cxx", max_pin="x.x.x") }}
