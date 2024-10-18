@@ -1,5 +1,7 @@
 c_compiler:
 - vs2019
+c_stdlib:
+- vs
 channel_sources:
 - conda-forge
 channel_targets:
@@ -12,6 +14,8 @@ fmt:
 - '10'
 libiconv:
 - '1'
+log4cxx:
+- 1.2.0
 target_platform:
 - win-64
 vc:
