@@ -21,7 +21,7 @@ docker_image:
 expat:
 - '2'
 fmt:
-- '10'
+- '11'
 libiconv:
 - '1'
 log4cxx:
