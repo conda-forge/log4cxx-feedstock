@@ -21,7 +21,7 @@ cxx_compiler_version:
 expat:
 - '2'
 fmt:
-- '11'
+- '11.2'
 libiconv:
 - '1'
 log4cxx:
