@@ -27,7 +27,7 @@ source:
   - path: CMakeLists.txt
 
 build:
-  number: 2
+  number: 3
   skip: true  # [win and vc<14]
   run_exports:
     # no ABI lab data, soname is changing with each release
