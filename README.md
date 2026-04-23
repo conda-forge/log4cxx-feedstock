@@ -201,5 +201,6 @@ Feedstock Maintainers
 * [@brianv0](https://github.com/brianv0/)
 * [@mwittgen](https://github.com/mwittgen/)
 * [@seanyen](https://github.com/seanyen/)
+* [@traversaro](https://github.com/traversaro/)
 * [@wolfv](https://github.com/wolfv/)
 
