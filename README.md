@@ -16,7 +16,6 @@ which uses Apache Portable Runtime for most platform-specific code and should be
 usable on any platform supported by APR. Apache log4cxx is licensed under the
 Apache License, an open source license certified by the Open Source Initiative.
 
-
 Current build status
 ====================
 
