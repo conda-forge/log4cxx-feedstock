@@ -14,9 +14,5 @@ fmt:
 - '12.1'
 libiconv:
 - '1'
-log4cxx:
-- 1.2.0
 target_platform:
 - win-64
-vc:
-- '14'
