@@ -1,0 +1,77 @@
+schema_version: 1
+
+context:
+  name: log4cxx
+  version: "1.8.0"
+
+package:
+  name: ${{ name }}
+  version: ${{ version }}
+
+source:
+  url: http://archive.apache.org/dist/logging/${{ name }}/${{ version }}/apache-${{ name }}-${{ version }}.tar.gz
+  sha256: 6a2e40dfa6b81a9a814ef2083d181b254f88324efff678368e5e61188a58fd3d
+
+build:
+  number: 0
+
+requirements:
+  run_exports:
+    # no ABI lab data, soname is changing with each release
+    - ${{ pin_subpackage("log4cxx", upper_bound="x.x.x") }}
+  build:
+    - if: unix
+      then: gnuconfig
+    - ${{ compiler('cxx') }}
+    - ${{ compiler('c') }}
+    - ${{ stdlib("c") }}
+    - cmake
+    - make
+    - if: linux
+      then: zip
+    - if: win
+      then:
+        - m2-sed
+        - m2-zip
+        - m2-gzip
+  host:
+    - expat
+    - apr
+    - libiconv
+    - fmt
+    - if: linux
+      then: libxcrypt
+  run:
+    - expat
+    - apr
+    - libaprutil
+    - libapr
+
+tests:
+  - package_contents:
+      include:
+        - log4cxx/appender.h
+        - log4cxx/logmanager.h
+        - log4cxx/log4cxx.h
+      lib:
+        - log4cxx
+
+about:
+  homepage: https://logging.apache.org/log4cxx
+  license: Apache-2.0
+  license_file: LICENSE
+  summary: A logging framework for C++ patterned after Apache log4j.
+  description: |
+    Apache log4cxx is a logging framework for C++ patterned after Apache log4j,
+    which uses Apache Portable Runtime for most platform-specific code and should be
+    usable on any platform supported by APR. Apache log4cxx is licensed under the
+    Apache License, an open source license certified by the Open Source Initiative.
+  documentation: https://logging.apache.org/log4cxx
+
+extra:
+  recipe-maintainers:
+    - traversaro
+    - wolfv
+    - seanyen
+    - brianv0
+    - mwittgen
