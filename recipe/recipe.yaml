@@ -2,7 +2,7 @@ schema_version: 1
 
 context:
   name: log4cxx
-  version: "1.8.0"
+  version: "1.2.0"
 
 package:
   name: ${{ name }}
@@ -10,10 +10,10 @@ package:
 
 source:
   url: http://archive.apache.org/dist/logging/${{ name }}/${{ version }}/apache-${{ name }}-${{ version }}.tar.gz
-  sha256: 6a2e40dfa6b81a9a814ef2083d181b254f88324efff678368e5e61188a58fd3d
+  sha256: 09f4748aa5675ef5c0770bedbf5e00488668933c5a935a43ac5b85be2436c48a
 
 build:
-  number: 0
+  number: 100
 
 requirements:
   run_exports:
@@ -75,3 +75,4 @@ extra:
     - seanyen
     - brianv0
     - mwittgen
+    - beckermr
